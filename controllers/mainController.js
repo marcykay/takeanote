@@ -183,28 +183,10 @@ module.exports = (db) => {
     let postImage = (request, response) => {
 
         console.log("Requesting File");
-        //console.dir(request.file.path);
-        //response.send(request.file.path);
         cloudinary.uploader.upload(request.file.path, function(error, result) {
             console.log("cloudinary screaming:::: ");
-            //console.log(result.public_id);
-            //console.dir(result);
-            // response.redirect('main/temp.jsx');
             response.send(JSON.stringify(result));
         });
-
-        // if (checkSession(request)) {
-        //     console.log("Post Image Call");
-        //
-        //     let currentUserId = request.cookies['user_id'];
-        //     db.query.getNote(notes_id, (error, allResults) => {
-        //         //let currentUserId = request.cookies['user_id'];
-        //         console.log("loadImage post Call");
-        //         response.status(200);
-        //     });
-        // } else {
-        //     response.redirect('/login');
-        // }
     };
 
     let loadImage = (request, response) => {

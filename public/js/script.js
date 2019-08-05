@@ -5,6 +5,7 @@ let loadEventListeners = function() {
 
     console.log(`func:loadEventListener`);
 
+    //switch from dummy note to actual note
     let dummyNote = document.getElementById('dummy_note');
     dummyNote.addEventListener('click', function(event) {
         clearCurrentNote();
@@ -13,6 +14,7 @@ let loadEventListeners = function() {
         document.getElementById("title1").focus();
     }, false);
 
+    // materialize CSS codes
     let elems = document.getElementById('fixed-action-btn');
     let instances = M.FloatingActionButton.init(elems, {
         direction: 'top',
@@ -44,13 +46,13 @@ let loadEventListeners = function() {
         ajaxFile();
     });
 
+    // change note color
     document.addEventListener('click', function(event) {
         console.log("clicked #=> " + event.currentTarget.id);
         let targetIcon = event.target;
         if (targetIcon.matches('.bgcolor'))  {
                 console.log(targetIcon.dataset.color);
                 document.getElementById('note-bg').style.backgroundColor = targetIcon.dataset.color;
-                //targetIcon.style.backgroundColor = targetIcon.dataset.color;
                 console.log("bg color transplanted:" +targetIcon.dataset.color);
                 document.getElementById('note-bg').dataset.color = targetIcon.dataset.color;
         }
@@ -64,7 +66,6 @@ let loadEventListeners = function() {
 let ajaxFile = function(notes_id_str) {
     var theUrl = "/loadImage";
     var method = "POST";
-    //encType="multipart/form-data"
     console.log(document.getElementById('submit-imageform').myFile.value);
     if (document.getElementById('submit-imageform').myFile.value) {
         var form = document.getElementById('submit-imageform');
@@ -152,7 +153,6 @@ let clearCurrentNote = function() {
     document.getElementById('timestamp1').innerText = "";
     document.getElementById('image-div').style.display = 'none';
     document.getElementById('show_image_link').className = "btn-floating waves-effect waves-light cyan";
-
 };
 
 let deleteCurrentNote = function() {
@@ -193,9 +193,6 @@ let updateNotesAll = function() {
 
     var theUrl = "/user";
     var method = "GET";
-    console.log(method);
-
-    //console.log(JSON.stringify(data));
     console.log("running httprequest");
     var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
     xmlhttp.addEventListener("load", function() {
@@ -211,7 +208,6 @@ let updateNotesAll = function() {
     xmlhttp.open(method, theUrl);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp.send();
-
 };
 
 let showImageLink = function() {
@@ -244,7 +240,6 @@ let showNoteEntry = function(notes_id_str) {
         showImageLink();
         M.textareaAutoResize(document.getElementById('content1'));
         //M.updateTextFields();
-
     });
     xmlhttp.open(method, theUrl);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -258,9 +253,7 @@ let showImageUploaderWindow = function() {
         imageUpLoader.style.display = 'none';
     } else {
         document.getElementsByClassName('image-uploader-window')[0].style.display = 'block';
-
     }
-
 };
 
 var resizeTimer;
@@ -301,13 +294,6 @@ function arrangeCards() {
     let colHeightMultiplier = 1.3;
     let colHeight = sumHeight / colNumbers * colHeightMultiplier;
     document.getElementsByClassName("flex-container")[0].style.maxHeight = colHeight + "px";
-
-    console.log(document.getElementsByClassName("flex-container")[0].style.maxHeight = colHeight + "px");
-
-    console.log("scroll width: "+document.getElementsByClassName("flex-container")[0].scrollWidth);
-
-    console.log("window width: "+windowWidth);
-
 }
 
 window.onresize = reportWindowSize;
@@ -316,20 +302,3 @@ window.onload = function() {
     loadEventListeners();
     reportWindowSize();
 }
-
-// let showNoteEntry = function(notes_id_str) {
-//     document.getElementById('dummy_note').style.display = 'none';
-//     document.getElementById('real_note').style.display = 'block';
-//     let notes_id_int = parseInt(notes_id_str);
-//     console.log(globalData);
-//     console.log(notes_id_int);
-//     console.log(globalData["allResults"][0]["title"]);
-//     console.log(globalData["allResults"][notes_id_int]["content"]);
-//     console.log(globalData["allResults"][notes_id_int]);
-//     // document.getElementById("notes_id1").value = data.id;
-//     // document.getElementById("title1").value = data.title;
-//     // document.getElementById("content1").value = data.title;
-//     // document.getElementById('timestamp1').innerText = 'Edited ' + parsePGTimestampDDMMYYYY(data.edited_time.toString());
-//     // document.getElementById("image-link1").value = data.image;
-//     // document.getElementById('timestamp1').style.display = "block";
-// }
