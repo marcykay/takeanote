@@ -40,7 +40,7 @@ class Home extends React.Component {
             <div className="navbar-fixed">
             <nav>
                 <div className="nav-wrapper blue-grey darken-4">
-                    <a href="/" className="brand-logo tooltipped" data-position="bottom" data-tooltip="Home" style={{marginLeft:"15px"}}><i className="material-icons">home</i>Take A Note</a>
+                    <a href="/" className="brand-logo tooltipped" data-position="bottom" data-tooltip="Home" style={{marginLeft:"15px", fontSize:'1.5em'}}><i className="material-icons">home</i>Take A Note</a>
                     <ul className="right">
                         {/* <li><a href="sass.html"><i className="material-icons">search</i></a></li> */}
                         {/* <li><a href="badges.html"><i className="material-icons">view_module</i></a></li> */}
