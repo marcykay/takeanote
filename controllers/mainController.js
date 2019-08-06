@@ -181,7 +181,6 @@ module.exports = (db) => {
     };
 
     let postImage = (request, response) => {
-
         console.log("Requesting File");
         console.log(request.file.path);
         cloudinary.uploader.upload(request.file.path, function(error, result) {
@@ -191,7 +190,6 @@ module.exports = (db) => {
             } else {
                 console.log("cloudinary error: "+error);
             }
-
         });
     };
 

@@ -3,8 +3,6 @@ let globalData = {};
 
 let loadEventListeners = function() {
 
-    console.log(`func:loadEventListener`);
-
     //switch from dummy note to actual note
     let dummyNote = document.getElementById('dummy_note');
     dummyNote.addEventListener('click', function(event) {
@@ -56,12 +54,8 @@ let loadEventListeners = function() {
                 console.log("bg color transplanted:" +targetIcon.dataset.color);
                 document.getElementById('note-bg').dataset.color = targetIcon.dataset.color;
         }
-
-
     }, false);
 }
-
-
 
 let ajaxFile = function(notes_id_str) {
     var theUrl = "/loadImage";
@@ -291,7 +285,7 @@ function arrangeCards() {
         document.getElementsByClassName("flex-item")[i].style.maxWidth = (100 / colNumbers) + "%";
     }
 
-    let colHeightMultiplier = 1.3;
+    let colHeightMultiplier = 1.2;
     let colHeight = sumHeight / colNumbers * colHeightMultiplier;
     document.getElementsByClassName("flex-container")[0].style.maxHeight = colHeight + "px";
 }
