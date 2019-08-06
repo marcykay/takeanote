@@ -71,7 +71,7 @@ let ajaxFile = function(notes_id_str) {
         var form = document.getElementById('submit-imageform');
         var formData = new FormData(form);
         console.dir(formData);
-        console.log("launching httprequest");
+        console.log("launching AJAX request");
         var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
         xmlhttp.addEventListener("load", function() {
             console.log("response received");

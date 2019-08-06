@@ -183,9 +183,15 @@ module.exports = (db) => {
     let postImage = (request, response) => {
 
         console.log("Requesting File");
+        console.log(request.file.path);
         cloudinary.uploader.upload(request.file.path, function(error, result) {
-            console.log("cloudinary screaming:::: ");
-            response.send(JSON.stringify(result));
+            if (error !== null) {
+                console.log("======file uploaded to cloudinary======");
+                response.send(JSON.stringify(result));
+            } else {
+                console.log("cloudinary error: "+error);
+            }
+
         });
     };
 
