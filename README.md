@@ -35,3 +35,7 @@ _CSS Framework_
 _How to Use_
 
 Register, Login, and take notes!
+
+Wireframe & Planning Notes
+![Wireframe](public/images/IMG_7651.png)
+![Notes](public/images/IMG_7652.png)
