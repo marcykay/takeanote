@@ -6,10 +6,12 @@ README.md
 _Features_
 
 - A note taking web app that allows recording of notes and saving in a database.
-- Registration, login & authentication
-- Users can add images to the notes
-- Users can change the color of the note.
+- Users registration, login & authentication
+- Users can add images, text to the notes
+- Images are stored online on the cloudinary servers.
+- Users can change the color of the note for better recognition
 - User are able to edit and delete the note(s).
+- The app makes use of AJAX to update the mainpage without reloading the page entirely.
 
 _NPM Modules_ required
 
